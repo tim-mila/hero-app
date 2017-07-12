@@ -1,0 +1,26 @@
+#!/bin/bash
+
+docker-machine status default | grep 'Running' &> /dev/null
+
+if [ $? == 0 ]; then
+    echo "*************************************"
+    echo "Docker Machine is running"
+    echo "*************************************"
+else
+    docker-machine start default
+    docker-machine env default
+    eval $(docker-machine env default)
+fi
+
+ROOT_NAME=$(pwd | awk -F/ '{print $NF}')
+DATABASE_NAME=$ROOT_NAME
+DOCKER_CONTAINER="${ROOT_NAME}-postgres"
+DOCKER_POSTGRES_PORT=25432
+export JDBC_DATABASE_URL=jdbc:postgresql://dockerhost:$DOCKER_POSTGRES_PORT/$DATABASE_NAME?currentSchema=hero
+export SPRING_DATASOURCE_URL=jdbc:postgresql://dockerhost:$DOCKER_POSTGRES_PORT/$DATABASE_NAME?currentSchema=hero
+export SPRING_DATASOURCE_USERNAME=postgres
+export SPRING_DATASOURCE_PASSWORD=postgres
+
+echo $JDBC_DATABASE_URL
+
+docker-machine status default | grep 'Running' &> /dev/null
