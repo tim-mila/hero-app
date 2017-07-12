@@ -16,8 +16,7 @@ ROOT_NAME=$(pwd | awk -F/ '{print $NF}')
 DATABASE_NAME=$ROOT_NAME
 DOCKER_CONTAINER="${ROOT_NAME}-postgres"
 DOCKER_POSTGRES_PORT=25432
-export JDBC_DATABASE_URL=jdbc:postgresql://dockerhost:$DOCKER_POSTGRES_PORT/$DATABASE_NAME?currentSchema=hero
-export SPRING_DATASOURCE_URL=jdbc:postgresql://dockerhost:$DOCKER_POSTGRES_PORT/$DATABASE_NAME?currentSchema=hero
+export SPRING_DATASOURCE_URL=jdbc:postgresql://dockerhost:$DOCKER_POSTGRES_PORT/$DATABASE_NAME?currentSchema=h
 export SPRING_DATASOURCE_USERNAME=postgres
 export SPRING_DATASOURCE_PASSWORD=postgres
 

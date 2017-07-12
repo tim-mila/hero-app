@@ -3,22 +3,13 @@ server:
 
 spring:
   datasource:
-#    url: ${JDBC_DATABASE_URL}
     driverClassName: org.postgresql.Driver
     maxActive: 10
     maxIdle: 5
     minIdle: 2
     initialSize: 5
     removeAbandoned: true
-
-security:
-  oauth2:
-    client:
-      clientId: "381877486255-le3t5n2051mo1dbogub885cfa9o8hqf2.apps.googleusercontent.com"
-      clientSecret: "Rc1qlg682vS5CZaxfxoffjgK"
-      userAuthorizationUri: "https://accounts.google.com/o/oauth2/auth"
-      accessTokenUri: "https://accounts.google.com/o/oauth2/token"
-      scope: "profile,email,openid"
-      clientAuthenticationScheme: form
-    resource:
-      userInfoUri: "https://www.googleapis.com/oauth2/v1/userinfo?alt=json"
+  jpa:
+    hibernate:
+      ddl-auto: update
+      default_schema: "h"
