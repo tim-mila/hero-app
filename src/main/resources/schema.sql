@@ -1,1 +1,1 @@
-create schema "h";
+CREATE SCHEMA IF NOT EXISTS "h";
