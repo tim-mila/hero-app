@@ -42,9 +42,4 @@ class UserController(val userRepository: UserRepository){
         }
         return principal;
     }
-
-    @GetMapping("/hello")
-    fun hello() : String {
-        return "Hello"
-    }
 }

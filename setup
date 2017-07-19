@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Jive Extract Service setup, only run this if you want to reset your database.  Continue [y/n]:" proceed
+read -p "Hero App setup, only run this if you want to reset your database.  Continue [y/n]:" proceed
 
 if [ "$proceed" == "y" ] || [ "$proceed" == "Y" ]; then
 
